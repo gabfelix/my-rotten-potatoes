@@ -24,6 +24,13 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    flash[:notice] = "Movie '#{@movie.title}' deleted."
+    redirect_to movies_path
+  end
+
   def create
     if params[:movie][:title].empty? || params[:movie][:rating].empty? || params[:movie][:description].empty? || params[:movie]["release_date(1i)"].empty? || params[:movie]["release_date(2i)"].empty? || params[:movie]["release_date(3i)"].empty?
       flash[:warning] = "Movie creation failed. Invalid data provided."
