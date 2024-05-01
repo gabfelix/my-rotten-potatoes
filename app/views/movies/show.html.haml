@@ -8,7 +8,7 @@
     Release date:
     = @movie.release_date.strftime("%B %d, %Y")
 
-- if !@movie.description.blank?
+- if @movie.description and !@movie.description.empty?
   %h3 Description:
   %p#description= @movie.description
 

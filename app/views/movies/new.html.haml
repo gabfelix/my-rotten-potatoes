@@ -1,3 +1,18 @@
 %h1 Add new movie
 
+= form_tag movies_path, :method => :post do
+  = label :movie, :title, 'Title'
+  = text_field :movie, :title
+
+  = label :movie, :rating, 'Rating'
+  = select :movie, :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17']
+
+  = label :movie, :description, 'Description'
+  = text_area :movie, :description
+
+  = label :movie, :release_date, 'Released on'
+  = date_select :movie, :release_date, {start_year: 1900, end_year: Date.today.year}
+
+  = submit_tag 'Save changes'
+
 = link_to 'Back to movie list', movies_path
