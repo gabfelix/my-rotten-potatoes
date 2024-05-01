@@ -50,12 +50,20 @@ table#movies td {
   padding: 4px;
   text-align: left;
 }
-#notice,
+
 #warning {
   background: rosybrown;
+}
+
+#notice {
+  background: lightgreen;
+}
+#notice,
+#warning {
   margin: 1em 0;
   padding: 4px;
 }
+
 form label {
   display: block;
   line-height: 25px;
