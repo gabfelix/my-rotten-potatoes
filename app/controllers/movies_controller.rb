@@ -10,7 +10,9 @@ class MoviesController < ApplicationController
 
   def create
     if params[:movie][:title].empty? || params[:movie][:rating].empty? || params[:movie][:description].empty? || params[:movie]["release_date(1i)"].empty? || params[:movie]["release_date(2i)"].empty? || params[:movie]["release_date(3i)"].empty?
-      throw :invalid_movie_input
+      flash[:warning] = "Movie creation failed. Invalid data provided."
+      redirect_to movies_path
+      return
     end
 
     # TODO: Throw if release_date is in the past
